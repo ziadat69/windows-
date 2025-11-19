@@ -1,0 +1,96 @@
+
+🟦 1) User Mode vs Kernel Mode (sehr einfach erklärt)
+🎯 Idee:
+
+Windows hat zwei Bereiche:
+
+• User Mode → sicher, für normale Programme
+• Kernel Mode → tiefer Systembereich, sehr mächtig und gefährlich
+🧠 Beispiel:
+• Dein Haus = User Mode
+• Ein geheimer Kontrollraum = Kernel Mode
+Nicht jeder darf rein.
+🖥 Realbeispiel:
+• Chrome läuft → User Mode
+• Festplatte, Treiber, CPU-Steuerung → Kernel Mode
+🔥 Malware, die in den Kernel eindringt = Rootkit (extrem gefährlich).
+
+━━━━━━━━━━━━━━━━━━
+🟦 2) Wichtige Windows-Prozesse (mit Beispielen)
+
+Wenn diese Dateien fehlen oder anders heißen → mögliches Malware-Signal.
+Prozess Funktion Vergleich
+System Hauptkern des OS Herz des Menschen
+smss.exe erste gestartete Session Schlüssel der das Auto startet
+csrss.exe Session & UI Management Regisseur im Theater
+wininit.exe startet Systemdienste jemand, der morgens alle Geräte einschaltet
+services.exe verwaltet alle Services Abteilungsleiter
+lsass.exe Passwörter & Login Passwort-Safe
+winlogon.exe Login-Prozess Eingangstür
+🔥 Malware-Beispiel:
+Wenn du lsasss.exe mit 3x S findest → 100% Malware.
+━━━━━━━━━━━━━━━━━━
+🟦 3) Registry – einfach erklärt
+🎯 Was ist das?
+Die Registry ist eine riesige Datenbank mit allen Windows-Einstellungen.
+🧠 Vergleich:
+Eine Bibliothek 📚 mit Informationen über jedes Programm.
+🔧 Praktisches Beispiel:
+Pfad:
+HKCU\Software\Microsoft\Windows\CurrentVersion\Run
+Das sagt Windows:
+„Starte dieses Programm beim Hochfahren.“
+Wenn du dort findest:
+C:\Users\admin\AppData\Local\Temp\evil.exe
+🔥 Das ist Malware, die sich im Autostart versteckt.
+━━━━━━━━━━━━━━━━━━
+🟦 4) Arbeitsspeicher (RAM) – Beispiel
+🎯 Idee:
+Programme müssen im RAM liegen, um zu laufen.
+🧠 Vergleich:
+RAM = Arbeitstisch
+• Programm startet → legt seine Dateien auf den Tisch
+• Programm schließt → Dateien verschwinden
+🔥 Malware, die nur im RAM lebt → Fileless Malware (sehr schwer zu entdecken).
+━━━━━━━━━━━━━━━━━━
+🟦 5) Prozesse & Threads
+🎯 Kurz:
+• Prozess = Programm
+• Thread = „Hand“, die innerhalb des Programms arbeitet
+🧠 Beispiel:
+Chrome = Prozess
+Jeder Tab = Thread oder eigener Prozess
+🔥 Malware versteckt sich manchmal als Thread in einem legitimen Prozess.
+━━━━━━━━━━━━━━━━━━
+🟦 6) Windows Services – leicht erklärt
+🎯 Was ist das?
+Dienste = Hintergrundprogramme, die immer laufen.
+Beispiele:
+• Windows Update
+• Firewall
+• Druckdienst
+Starten mit:
+services.msc
+🔥 Hacker-Trick:
+Angreifer erstellen einen Fake-Service:
+myservice.exe
+→ startet jedes Mal → Persistence.
+━━━━━━━━━━━━━━━━━━
+🟦 7) Tokens (Berechtigungen)
+🎯 Idee:
+Jedes Programm bekommt eine „Ausweiskarte“ = Access Token
+Level:
+• User
+• Admin (Run as Administrator)
+• SYSTEM (höchste Stufe)
+🔥 Hacker nutzen Tools wie Mimikatz, um Tokens zu stehlen.
+━━━━━━━━━━━━━━━━━━
+🟦 8) Windows Boot-Prozess – sehr einfach
+1. PC startet
+2. BIOS sucht Windows
+3. bootmgr startet
+4. winload.exe lädt Systemdateien
+5. Kernel startet
+6. winlogon zeigt Login-Screen
+🔥 Wenn Malware sich zwischen Schritt 3 & 4 setzt → Bootkit (extrem gefährlich).
+━━━━━━━━━━━━━━━━━━
