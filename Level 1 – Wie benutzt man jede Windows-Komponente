@@ -1,0 +1,129 @@
+
+━━━━━━━━━━━━━━━━━━
+🇩🇪 Level 1 – Wie benutzt man jede Windows-Komponente (Einsteiger-Niveau)
+
+━━━━━━━━━━━━━━━━━━
+🟦 1) Kernel – Wie benutzt man ihn im Level 1?
+Als Anfänger arbeitest du nicht direkt mit dem Kernel.
+Du musst ihn nur verstehen, um Fehler einzuordnen.
+✔ Wie benutzt du dieses Wissen?
+• Wenn ein Blue Screen (BSOD) erscheint → Fehler im Kernel oder Treiber
+• Wenn ein Programm abstürzt ohne Blue Screen → Fehler im User Mode
+⭐ Level-1-Zusammenfassung:
+Nur den Unterschied verstehen — du arbeitest nicht direkt damit.
+
+━━━━━━━━━━━━━━━━━━
+🟦 2) User Mode – wie nutzt du ihn?
+Das ist der Teil, den du jeden Tag benutzt:
+• Programme öffnen
+• Programme schließen
+• Im Task-Manager sehen, was viel CPU verbraucht
+• Programme deinstallieren
+✔ Als Anfänger machst du:
+• Wenn ein Programm hängt → Task Manager öffnen → Task beenden
+• Wenn CPU auf 100% geht → liegt an User Mode Prozessen
+• Wenn der PC langsam ist → User Mode prüfen
+⭐ Level-1-Zusammenfassung:
+Du nutzt den Task-Manager, um Probleme im User Mode zu erkennen.
+
+befhel - taskmgr
+━━━━━━━━━━━━━━━━━━
+🟦 3) Processes / Threads – wie benutzt du sie?
+Im Level 1 benutzt du nur den Task-Manager.
+✔ Prozesse ansehen:
+1. Task-Manager öffnen
+2. Reiter Prozesse
+3. Jede Zeile = ein Prozess
+Beispiele:
+• chrome.exe
+• explorer.exe
+• discord.exe
+• cmd.exe
+✔ Threads verstehen (aber nicht analysieren):
+• Jeder Prozess hat Threads
+• Threads = „kleine Arbeiter“, die Aufgaben erledigen
+✔ Wofür brauchst du das?
+• herausfinden, warum der PC langsam ist
+• sehen, welches Programm CPU oder RAM frisst
+• verdächtige Programme entdecken
+⭐ Level-1-Zusammenfassung:
+Du erkennst, welche Prozesse normal oder verdächtig sind.
+━━━━━━━━━━━━━━━━━━
+🟦 4) Handles – wie benutzt man sie als Anfänger?
+Du brauchst Handles nur für eine Sache:
+✔ Wenn eine Datei nicht löschbar ist → „File is in use“
+Dann nutzt du:
+• Process Explorer (Microsoft Tool)
+Schritte:
+1. Process Explorer öffnen
+2. nach dem Dateinamen suchen
+3. sehen, welcher Prozess die Datei hält
+4. Prozess schließen
+5. Datei löschen
+⭐ Level-1-Zusammenfassung:
+Du benutzt Handles nur, um herauszufinden, welches Programm eine Datei blockiert.
+━━━━━━━━━━━━━━━━━━
+🟦 5) Registry – wie benutzt man sie im Level 1?
+Keine Angst — Level 1 ist ganz einfach.
+Du nutzt die Registry für 3 grundlegende Aufgaben:
+1. Autostart-Programme prüfen
+Pfad:
+HKEY_CURRENT_USER\Software\Microsoft\Windows\CurrentVersion\Run
+2. Kleine Einstellungen prüfen
+(z. B. Startup, Explorer, Sprache …)
+3. Probleme lösen
+(z. B. DNS, Explorer, Autostart)
+⭐ Level-1-Zusammenfassung:
+Du schaust nur — du änderst nichts Komplexes.
+
+befehel - regedit
+
+
+━━━━━━━━━━━━━━━━━━
+🟦 6) WinAPI – wie nutzt man sie als Anfänger?
+Im Level 1 benutzt du die WinAPI nicht direkt.
+Aber du musst wissen:
+• Jedes Programm kommuniziert über die WinAPI
+• Antivirus verwendet WinAPI
+• Malware verwendet WinAPI
+✔ Was machst du im Level 1?
+Du nutzt Process Monitor (Sysinternals), um einfache API-Aufrufe zu sehen:
+• CreateProcess
+• ReadFile
+• WriteFile
+Nur anschauen — nicht analysieren.
+
+
+━━━━━━━━━━━━━━━━━━
+🟦 7) Windows Security Model (Tokens & Integrity Levels)
+1) Token (Berechtigungs-Identität)
+Im Level 1 brauchst du nur zu wissen:
+• Läuft das Programm als Normaler User?
+• Oder als Administrator?
+Wie siehst du das?
+• Rechtsklick → „Als Administrator ausführen“
+• Task-Manager → Reiter Details → Integrity Level sehen
+2) Integrity Levels
+Vier Stufen:
+• Low → Chrome Tabs
+• Medium → normale Programme
+• High → Administrator
+• System → höchste Rechte
+✔ Wozu brauchst du das?
+Wenn ein Programm etwas nicht darf →
+liegt es meist daran, dass es nur Medium ist, aber High braucht.
+⭐ Level-1-Zusammenfassung:
+Du lernst nur zu unterscheiden zwischen:
+User / Admin / System Rechten
+━━━━━━━━━━━━━━━━━━
+🎯 Komplette Level-1-Zusammenfassung
+Konzept Was du im Level 1 machst
+Kernel Wissen, dass BSOD = Kernel
+User Mode Task Manager nutzen
+Processes erkennen, was viel CPU/RAM frisst
+Threads grundlegendes Verständnis
+Handles wissen, wer Datei blockiert
+Registry nur Autostart prüfen
+WinAPI Aufrufe im Process Monitor ansehen
+Security Model Unterschied Admin/System verstehen
+━━━━━━━━━━━━━━━━━━
