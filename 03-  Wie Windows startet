@@ -1,0 +1,116 @@
+🟦 Wie Windows startet – Schritt für Schritt (Deutsch)
++ Welche Datei startet genau wann.
+⸻
+✅ 1) Power-On (Gerät wird eingeschaltet)
+Startet automatisch: KEINE Windows-Dateien
+→ Nur die Hardware wacht auf.
+⸻
+✅ 2) POST (Power On Self Test)
+Startet automatisch: KEINE Windows-Dateien
+→ Mainboard testet RAM, CPU, Tastatur, Grafikkarte.
+⸻
+✅ 3) BIOS / UEFI startet
+Startet automatisch:
+• KEINE Windows-Dateien
+→ BIOS sucht nach einem startbaren Gerät (HDD/SSD/USB).
+📌 Erst wenn BIOS ein Windows-Laufwerk findet, geht’s weiter.
+⸻
+🟦 4) Boot Manager wird geladen
+Die erste Windows-Datei, die gestartet wird:
+bootmgr
+📌 Wann wird bootmgr geladen?
+→ Direkt nachdem BIOS/UEFI das Windows-Laufwerk gefunden hat.
+Aufgaben:
+• Bootmenü anzeigen
+• Windows-Start vorbereiten
+⸻
+🟦 5) Winload.exe wird gestartet
+Nach dem Boot Manager startet:
+winload.exe
+📌 Wann wird winload.exe geladen?
+→ Nach Auswahl des Betriebssystems bzw. automatisch nach bootmgr.
+Aufgaben:
+• Kernel laden
+• Basis-Treiber laden
+• Registry-Hive laden
+⸻
+🟦 6) Kernel wird geladen
+Der Windows-Kernel heißt:
+ntoskrnl.exe
+📌 Wann wird der Kernel geladen?
+→ Direkt nachdem winload.exe fertig ist.
+Aufgaben:
+• Speicherverwaltung
+• Prozessverwaltung
+• Start der Systemdienste
+Ab jetzt ist Windows offiziell gestartet.
+⸻
+🟦 7) Treiber & Systemprozesse starten
+Die ersten Systemprozesse starten jetzt:
+1) smss.exe
+Session Manager
+📌 Startet direkt nach dem Kernel
+2) csrss.exe
+Client/Server Runtime
+📌 Startet sofort nach smss.exe
+3) wininit.exe
+Windows Initializer
+📌 Startet direkt nach csrss.exe
+⸻
+🟦 8) Services starten
+Jetzt startet wininit.exe die wichtigsten Dateien:
+✔ services.exe
+Dienstemanager
+📌 Startet nach wininit.exe
+Startet:
+• Windows Update
+• Netzwerkdienste
+• Firewalldienste
+• Systemdienste
+⸻
+🟦 9) Sicherheitskomponenten starten
+✔ lsass.exe
+(Local Security Authority)
+📌 Startet gleichzeitig mit services.exe
+Aufgaben:
+• Passwörter
+• Login-Tokens
+• Authentifizierung
+⸻
+🟦 10) Winlogon.exe startet
+winlogon.exe
+📌 Wann startet winlogon.exe?
+→ Sobald Dienste laufen – noch vor dem Login-Bildschirm.
+Aufgabe:
+• Login-Screen anzeigen
+• STRG+ALT+ENTF
+• Benutzeranmeldung
+⸻
+🟦 11) Explorer.exe startet (Desktop)
+Nach erfolgreichem Login:
+explorer.exe
+📌 Wann startet explorer.exe?
+→ Sofort nach Eingabe des Passwortes.
+Aufgaben:
+• Desktop
+• Taskleiste
+• Startmenü
+• Datei-Explorer
+⸻
+⭐ Komplette Boot-Reihenfolge (Kurz und Klar)
+Reihenfolge Datei Zeitpunkt
+1 – Einschalten
+2 – POST
+3 – BIOS/UEFI
+4 bootmgr Direkt nach BIOS
+5 winload.exe Nach bootmgr
+6 ntoskrnl.exe Kernel-Start
+7 smss.exe Erste Systemprozesse
+8 csrss.exe Sessions verwalten
+9 wininit.exe Start der Dienste
+10 services.exe Systemdienste starten
+11 lsass.exe Sicherheit/Passwörter
+12 winlogon.exe Login-Bildschirm
+13 explorer.exe Desktop erscheint
+
+⸻
